@@ -94,8 +94,15 @@ public class UserControllerTest extends BaseIntegrationTest {
     @WithMockUser(username = "testUser", roles = {"USER"})
     public void testGetUserByIdNegative() throws Exception {
         UUID id = UUID.randomUUID();
-        // Указываем, что при вызове метода getUserById с неправильным id будет возвращаться null
-        Mockito.when(userService.getUserById(id)).thenReturn(null);
+
+        UserResponse userResponse = new UserResponse(
+                "Vadim",
+                "Goshin",
+                "myEmail.com",
+                List.of("USER"),
+                List.of("Manager"));
+
+        Mockito.when(userService.getUserById(id)).thenReturn(userResponse);
         mvc.perform(get("/api/users/{id}", id.toString())
                         .contentType(MediaType.APPLICATION_JSON))
                 // Ожидаем статус "403 доступ запрещен, т.к USER пробует получить по ID"

@@ -4,7 +4,6 @@ package com.itm.space.backendresources.testController;
 import com.itm.space.backendresources.BaseIntegrationTest;
 import com.itm.space.backendresources.api.request.UserRequest;
 import com.itm.space.backendresources.api.response.UserResponse;
-import com.itm.space.backendresources.controller.UserController;
 import com.itm.space.backendresources.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -15,14 +14,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
 import java.util.List;
 import java.util.UUID;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

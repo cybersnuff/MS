@@ -108,8 +108,8 @@ public class UserControllerTest extends BaseIntegrationTest {
                 "Vadim", "");
     }
 
-    // Объявление метода, который будет выполняться после каждого тестового метода
-    void cleanUp() { // Начало метода очистки
+
+    void cleanUp() { // что бы юзер не оставался в базе
         UserRepresentation userRepresentation = keycloak.realm("ITM").users().search("Vadim").get(0); // Поиск созданного пользователя в Keycloak
         keycloak.realm("ITM").users().get(userRepresentation.getId()).remove(); // Удаление созданного пользователя
     }
